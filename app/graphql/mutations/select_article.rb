@@ -6,14 +6,14 @@ module Mutations
 
     # TODO: define arguments
     # argument :name, String, required: true
-    argument :string, String, required: true
+    argument :string, ID, required: true
 
     # TODO: define resolve method
     # def resolve(name:)
     #   { post: ... }
     # end
     def resolve(string:)
-      article=Article.where(title: string)
+      article = Article.find(string)
       {
         article: article
       }
